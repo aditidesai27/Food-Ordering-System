@@ -1,0 +1,68 @@
+{% extends 'webapp/base.html'%}
+{% block title %}Log In{% endblock %}
+
+{% block body %}
+
+<style type="text/css">
+  body{
+    background-image: url('/static/webapp/images/white-abstract-background-design_23-2148825582.jpg');
+  }
+</style>
+
+<div class="container col-md-8">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h1 class=" col-md-offset-4" style="font-style:bold; font-family:sans-serif; font-size:50px " ><strong>Log In</strong></h1>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <br>
+                    <form class="form-horizontal" role="form" action="#" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" style=" font-family:sans-serif; font-size:20px"  for="id_username">
+                                Username:
+                            </label>
+                            <div class="col-sm-6">
+                                <input id="id_username" maxlength="30" name="username" type="text">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" style=" font-family:sans-serif; font-size:20px" for="id_password">
+                                Password:
+                            </label>
+                            <div class="col-sm-7">
+                                <input id="id_password" maxlength="30" name="password" type="password">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <div class= "col-sm-10">
+                                <button type="submit" class="btn btn-success" style="height:40px; font-size: 20px;" href="">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-10 panel-footer" style=" font-family:sans-serif" >
+                    Don't have an account? <a href="{% url 'register' %}">Click here</a> to register.
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br>
+<br>
+
+
+{% endblock %}
+

@@ -1,0 +1,47 @@
+{% extends 'webapp/base.html'%}
+{% block title %}Register{% endblock %}
+{% block body %}
+<style  type="text/css">
+  body{
+    background-image: url('/static/webapp/images/white-abstract-background-design_23-2148825582.jpg');
+    height: 100%;
+    width: 100%;
+  }
+</style>
+<div class="container col-md-8">
+
+    <div class="row">
+        <div class="col-sm-10 col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <br>
+                    <br>
+                    <h1><font size="8"><strong>SIGN UP</strong></font></h1>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <br>
+
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                       {% include 'webapp/form_template.html' %}
+                        
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                
+                <div class="panel-footer">
+                    Already have an account? <a href="{% url 'login' %}">Click here</a> to log in.
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
